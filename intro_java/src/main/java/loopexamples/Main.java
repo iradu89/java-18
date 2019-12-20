@@ -12,6 +12,7 @@ public class Main {
         sumaNrArray(arrayInt);
         int numar = 1501;
 
+        //o noua linie de cod
         //O metoda de inversare folosint % si /
         inversareNumar(numar);
 
