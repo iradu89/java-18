@@ -10,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ObjectContainersMainTest {
     //treeset
-    PersonTreeSet treeSet;
+    PersonContainer treeSet;
 
     //hashmap
-    PersonHashMap hashMap;
+    PersonContainerMap hashMap;
 
     /**
      * Creating Hobbies with addresses and countries for the HashMap
@@ -32,10 +32,10 @@ class ObjectContainersMainTest {
     @BeforeEach
     public void setup() {
         //treeset
-        treeSet = new PersonTreeSet();
+        treeSet = new PersonContainer();
 
         //HashMap
-        hashMap = new PersonHashMap();
+        hashMap = new PersonContainerMap();
 
         //adding addresses to hobbies
         skiing.addAddress(new Adresa(france, "Chamonix", "Place de l'Aiguille du Midi", 100));

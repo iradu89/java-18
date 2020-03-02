@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PersonHashMap {
+public class PersonContainerMap {
     private HashMap<Persoana, List<Hobby>> hashMap = new HashMap<Persoana, List<Hobby>>();
 
     public void add(Persoana persoana, Hobby hobby) {

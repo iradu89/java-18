@@ -3,7 +3,7 @@ import util.Persoana;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-public class PersonTreeSet {
+public class PersonContainer {
     //using a comparator by name and age
     private TreeSet<Persoana> treeSet = new TreeSet<Persoana>(new Comparator<Persoana>() {
         public int compare(Persoana person1, Persoana person2) {

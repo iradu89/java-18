@@ -40,7 +40,7 @@ public class ObjectContainersMain {
                 "Junior accounts payable", "contabilitate", 3000);
         Persoana radu2 = new Student("Radu", "Bradu", "M", 21);
 
-        PersonTreeSet treeSet1 = new PersonTreeSet();
+        PersonContainer treeSet1 = new PersonContainer();
         treeSet1.add(radu);
         treeSet1.add(cata);
         treeSet1.add(irina);
@@ -88,7 +88,7 @@ public class ObjectContainersMain {
         fitness.addAddress(new Adresa(switzerland, "Basel", "Allmendstrasse", 5));
 
         //HashMap of Persoana & List<Hobby>
-        PersonHashMap hashMap = new PersonHashMap();
+        PersonContainerMap hashMap = new PersonContainerMap();
         hashMap.add(radu, swimming);
         hashMap.add(radu, fishing);
         hashMap.add(irina, racing);
