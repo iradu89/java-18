@@ -3,14 +3,13 @@ package main;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Athlete {
+class Athlete {
     private int number;
     private String name;
     private String countryCode;
     private SkiTimeResult skiTimeResult;
     private int penaltyTime = 0; // in seconds
     private String[] shootingRangeResult;
-
 
     public Athlete(int number, String name, String countryCode, SkiTimeResult skiTimeResult, String[] shootingRangeResult) {
         this.number = number;

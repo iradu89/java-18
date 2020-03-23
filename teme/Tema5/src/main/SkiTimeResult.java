@@ -2,14 +2,13 @@ package main;
 
 import java.util.Objects;
 
-public class SkiTimeResult {
+class SkiTimeResult {
     private int minutes;
     private int seconds;
 
-    public SkiTimeResult(String input) { //constructor receives a String and parses the data itself
-        String[] minutesAndSeconds = input.split(":");
-        this.minutes = Integer.parseInt(minutesAndSeconds[0]);
-        this.seconds = Integer.parseInt(minutesAndSeconds[1]);
+    public SkiTimeResult(int minutes, int seconds) {
+        this.minutes = minutes;
+        this.seconds = seconds;
     }
 
     public int getMinutes() {

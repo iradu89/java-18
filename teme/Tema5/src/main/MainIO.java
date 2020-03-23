@@ -62,23 +62,23 @@ public class MainIO {
         printToFile(athleteList, "FinalResults.txt", "WinnersDirectory");
     }
 
-    public static List<Athlete> readResultsFromCSV() {
+    private static List<Athlete> readResultsFromCSV() {
         String fileName = "src/main/resources/ski_biathlon_results.csv"; //custom path to better organize folder
         AthleteCSVReader athleteCSVReader = new AthleteCSVReader();
         return athleteCSVReader.readAthletes(fileName);
     }
 
-    public static void calculateStandings(List<Athlete> athleteList) {
+    private static void calculateStandings(List<Athlete> athleteList) {
         AthleteStandingsProcessor calculator = new AthleteStandingsProcessor();
-        calculator.CalculateStandings(athleteList);
+        calculator.calculateStandings(athleteList);
     }
 
-    public static void printWinners(List<Athlete> athleteList) {
+    private static void printWinners(List<Athlete> athleteList) {
         AthletePrinterAndWriter athletePrinterAndWriter = new AthletePrinterAndWriter();
         athletePrinterAndWriter.printWinners(athleteList);
     }
 
-    public static void printToFile(List<Athlete> athleteList, String fileName, String dirName){
+    private static void printToFile(List<Athlete> athleteList, String fileName, String dirName){
         AthletePrinterAndWriter athletePrinterAndWriter = new AthletePrinterAndWriter();
         athletePrinterAndWriter.printToFile(athleteList, fileName, dirName);
     }

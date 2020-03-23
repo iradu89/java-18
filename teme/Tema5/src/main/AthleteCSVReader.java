@@ -11,9 +11,7 @@ public class AthleteCSVReader {
     List<Athlete> readAthletes(String fileName) {
         List<Athlete> athletes = new ArrayList<>();
 
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
-
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String line = bufferedReader.readLine();
 
             while (line != null) {
@@ -24,11 +22,13 @@ public class AthleteCSVReader {
                     break;
                 }
 
+                String[] minutesAndSeconds = fields[3].split(":");
+
                 Athlete athlete = new Athlete(
                         Integer.parseInt(fields[0]), // athlete number
                         fields[1], // athlete name
                         fields[2], // country code
-                        new SkiTimeResult(fields[3]), // ski time result
+                        new SkiTimeResult(Integer.parseInt(minutesAndSeconds[0]), Integer.parseInt(minutesAndSeconds[1])), // ski time result
                         new String[]{fields[4], fields[5], fields[6]} // array of shootingRange results
                 );
 
@@ -36,9 +36,6 @@ public class AthleteCSVReader {
 
                 line = bufferedReader.readLine(); //reading the next line
             }
-
-            bufferedReader.close(); //closing the buffered reader
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,7 +93,9 @@ public class AthleteCSVReader {
                     correctLength++;
                     continue;
                 }
-                correctLength--; //if character is not o or x then -1 the correct length
+                //return false directly if any character is not x or o
+                System.out.print("The shooting range results must be at 5 letters long and only contain x or o lower case\n");
+                return false;
             }
         }
         if (correctLength != 15) {

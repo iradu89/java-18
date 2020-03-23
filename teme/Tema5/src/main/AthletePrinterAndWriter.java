@@ -12,7 +12,7 @@ import java.util.List;
 public class AthletePrinterAndWriter {
 
     public void printToFile(List<Athlete> athleteList, String fileName, String dirName) {
-        if(athleteList.isEmpty()){
+        if (athleteList.isEmpty()) {
             System.out.println("Can't print anything if the list given is empty");
             return;
         }
@@ -28,12 +28,12 @@ public class AthletePrinterAndWriter {
                 content.append("Third Place: ").append(athleteList.get(i).toString());
 
             } else { //format for all other participants in order
-                content.append(i).append(": ").append(athleteList.get(i).toString());
+                content.append(i + 1).append(": ").append(athleteList.get(i).toString());
             }
         }
 
         //setting the path to the new directory
-        Path path = Paths.get("C:\\Users\\Radu Laptop\\Desktop\\SIDIT\\Github\\java-18\\teme\\Tema5\\" + dirName);
+        Path path = Paths.get(System.getProperty("user.dir") + "//" + dirName);
         //if the path directory doesn't exist then create it
         if (!Files.exists(path)) {
             try {

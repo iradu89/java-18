@@ -4,7 +4,7 @@ import java.util.List;
 
 public class AthleteStandingsProcessor {
     //Calculates the current standings and then sorts the list according to the time + penalty
-    public void CalculateStandings(List<Athlete> athleteList) {
+    public void calculateStandings(List<Athlete> athleteList) {
 
         for (Athlete athlete : athleteList) {
             int penaltySeconds = 0;
