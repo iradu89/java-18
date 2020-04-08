@@ -32,8 +32,7 @@ class JavaOperations {
     public static Set<Person> findElementsAndPrintAndReturnSet(List<Person> input) {
         System.out.println("----------Exercise 2----------");
         Set<Person> personSet = input.stream()
-                .filter(person -> person.getName().startsWith("M"))
-                .filter(person -> person.getName().contains("a"))
+                .filter(person -> person.getName().startsWith("M") && person.getName().contains("a"))
                 .collect(Collectors.toSet());
 
         personSet.forEach(System.out::println);
@@ -64,7 +63,7 @@ class JavaOperations {
         System.out.println("----------Exercise 4----------");
         Set<String> stringSet = new HashSet<>();
         for (int i = 0; i < howMany; i++) {
-            stringSet.add(RandomBuilder.buildString());
+            stringSet.add(StringBuilderHelper.buildString());
         }
         return stringSet;
     }
@@ -177,7 +176,9 @@ class JavaOperations {
         //Checking using isPresent
         if (max.isPresent()) {
             System.out.println("The string isn't null");
-        } else System.out.println("The string is null");
+        } else {
+            System.out.println("The list is empty");
+        }
     }
 
     /**
@@ -193,38 +194,38 @@ class JavaOperations {
         //Classic way is fastest for size under 100
         if (input.size() < 100) {
             startTime = System.nanoTime();
-            String resultClassic = input.iterator().next();
+            String classicResult = input.iterator().next();
             for (String string : input) {
-                if (resultClassic.length() > string.length()) {
-                    resultClassic = string;
+                if (classicResult.length() > string.length()) {
+                    classicResult = string;
                 }
             }
             endTime = System.nanoTime();
             System.out.println("Classic way took " + (1.0 * (endTime - startTime) / 1000000) + " milliseconds");
-            return resultClassic;
+            return classicResult;
 
             //Reducer is fastest for size under 500000
         } else if (input.size() < 500000) {
             startTime = System.nanoTime();
-            String resultReducer = input.stream()
+            String reducerResult = input.stream()
                     .reduce((word1, word2) ->
                             word1.length() < word2.length() ? word1 : word2)
                     .orElseThrow();
             endTime = System.nanoTime();
             System.out.println("Stream reducer took " + (1.0 * (endTime - startTime) / 1000000) + " milliseconds");
-            return resultReducer;
+            return reducerResult;
 
             //Parallel reducer is fastest for size over 500000
         } else {
             startTime = System.nanoTime();
-            String resultParallelReducer = input.stream()
+            String parallelReducerResult = input.stream()
                     .parallel()
                     .reduce((word1, word2) ->
                             word1.length() < word2.length() ? word1 : word2)
                     .orElseThrow();
             endTime = System.nanoTime();
             System.out.println("Stream parallel reducer took " + (1.0 * (endTime - startTime) / 1000000) + " milliseconds ");
-            return resultParallelReducer;
+            return parallelReducerResult;
         }
     }
 }
