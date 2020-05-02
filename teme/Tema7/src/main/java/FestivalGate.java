@@ -2,6 +2,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -9,7 +10,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 class FestivalGate {
     private final List<FestivalAttendeeThread> festivalAttendees;
     //a queue which orders the elements in descending order based on the thread priority
-    private final PriorityBlockingQueue<FestivalAttendeeThread> priorityQueue =
+    private final BlockingQueue<FestivalAttendeeThread> priorityQueue =
             new PriorityBlockingQueue<>(100, Comparator.comparing((FestivalAttendeeThread festivalAttendeeThread) ->
                     festivalAttendeeThread.getTicketType().getPriority()).reversed());
 
